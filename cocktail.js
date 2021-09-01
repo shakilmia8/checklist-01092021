@@ -1,11 +1,12 @@
 
-const getClick = search => {
-    const ser = document.getElementById('ser');
-    const serText = ser.value;
+let getClick = () => {
+    let ser = document.getElementById('ser');
+    let serText = ser.value;
     ser.value = '';
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`)
+    let url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${serText}`;
+    fetch(url)
         .then(res => res.json())
-        .then(data => displayShow(data.drinks));
+        .then(data => console.log(data.drinks));
 }
 const displayShow = drinks => {
     // searchBox();
